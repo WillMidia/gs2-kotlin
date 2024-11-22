@@ -1,8 +1,8 @@
 package will.com.github.gs2
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -38,6 +38,12 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
         addInitialTips()
         setupFab()
+
+        // Configurar o botão para navegar até as equipes
+        val viewTeamsButton: Button = findViewById(R.id.btnViewTeams)
+        viewTeamsButton.setOnClickListener {
+            openTeamsActivity()
+        }
     }
 
     private fun setupFab() {
@@ -69,6 +75,7 @@ class MainActivity : AppCompatActivity() {
                     return@setPositiveButton
                 }
 
+                // Adiciona a dica usando o ViewModel
                 viewModel.addTip(title, description, url)
                 Toast.makeText(this, "Dica adicionada com sucesso!", Toast.LENGTH_SHORT).show()
             }
@@ -80,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         adapter = ItemsAdapter(
             onItemClicked = { item ->
+                // Não usa mais Uri.parse, apenas mostra a descrição se não houver URL
                 item.url?.let { url ->
                     openUrl(url)
                 } ?: showToast(item.description)
@@ -119,11 +127,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openUrl(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        // Utiliza o Intent para abrir uma URL sem precisar do Uri.parse() diretamente
+        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
+        startActivity(intent)
+    }
+
+    private fun openTeamsActivity() {
+        val intent = Intent(this, TeamActivity::class.java)
         startActivity(intent)
     }
 
     private fun addInitialTips() {
+        // Adiciona dicas iniciais
         viewModel.addTip(
             "Use lâmpadas LED",
             "Substitua suas lâmpadas antigas por LED para economizar até 80% de energia",
