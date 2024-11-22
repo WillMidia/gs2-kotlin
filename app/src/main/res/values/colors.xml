@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Cores principais do tema Energia Verde -->
+    <color name="colorPrimary">#388E3C</color> <!-- Verde escuro, representando a energia verde -->
+    <color name="colorPrimaryVariant">#2C6B2F</color> <!-- Variante de verde escuro -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- Branco para texto sobre o verde -->
+
+    <color name="colorSecondary">#8BC34A</color> <!-- Verde claro, representando renovação e natureza -->
+    <color name="colorSecondaryVariant">#7CB342</color> <!-- Variante de verde claro -->
+    <color name="colorOnSecondary">#000000</color> <!-- Preto para texto sobre o verde claro -->
+
+    <color name="colorBackground">#E8F5E9</color> <!-- Cor de fundo mais clara para uma sensação natural -->
+    <color name="colorSurface">#FFFFFF</color> <!-- Cor de superfície branca para contrastar com os verdes -->
+
+    <!-- Cores de destaque -->
+    <color name="colorAccent">#FFEB3B</color> <!-- Amarelo, representando energia solar ou fonte de energia -->
+
+    <!-- Cores adicionais -->
+    <color name="colorError">#D32F2F</color> <!-- Vermelho para erros -->
+    <color name="colorOnSurface">#000000</color> <!-- Texto em cima de áreas de superfície -->
+    <color name="windowBackground">#F1F8E9</color> <!-- Cor de fundo da janela -->
+
+</resources>
